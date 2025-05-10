@@ -1,32 +1,32 @@
-# check_bcp_status.py
+# check_BGP_status.py
 import os
 import json
 import time
 
-def get_bcp_status(device_name):
+def get_bgp_status(device_name):
     """
-    Simulates checking BCP status for a given device.
+    Simulates checking BGP status for a given device.
     """
-    print(f"Attempting to check BCP status for device: {device_name}...")
+    print(f"Attempting to check BGP status for device: {device_name}...")
     # Simulate some work
     time.sleep(2)
 
     # Simulated status
     status_info = {
         "deviceName": device_name,
-        "bcpEnabled": True,
+        "BGPEnabled": True,
         "lastCheckTimestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "interfaceDetails": [
-            {"interfaceName": "eth0", "operationalStatus": "up", "bcpPeerCount": 1},
-            {"interfaceName": "eth1", "operationalStatus": "down", "bcpPeerCount": 0}
+            {"interfaceName": "eth0", "operationalStatus": "up", "BGPPeerCount": 1},
+            {"interfaceName": "eth1", "operationalStatus": "down", "BGPPeerCount": 0}
         ],
-        "summaryNotes": f"BCP status check completed successfully for {device_name}. Device appears compliant."
+        "summaryNotes": f"BGP status check completed successfully for {device_name}. Device appears compliant."
     }
-    print(f"Successfully checked BCP status for {device_name}.")
+    print(f"Successfully checked BGP status for {device_name}.")
     return status_info
 
 if __name__ == "__main__":
-    print("BCP Status Checker Script execution started.")
+    print("BGP Status Checker Script execution started.")
 
     extra_vars_json = os.getenv("EXTRA_VARS")
     device_to_check = None
@@ -48,11 +48,11 @@ if __name__ == "__main__":
         final_status_data = {"error": "EXTRA_VARS environment variable not set"}
 
     if device_to_check:
-        final_status_data = get_bcp_status(device_to_check)
+        final_status_data = get_bgp_status(device_to_check)
     else:
         # Ensure final_status_data has an error message if device_to_check is None
         if not final_status_data: # If not already set by parsing errors
-            final_status_data = {"error": "Device name could not be determined for BCP check."}
+            final_status_data = {"error": "Device name could not be determined for BGP check."}
 
 
     # Output the result as JSON, wrapped with ^JSON markers like in the hello-kriten example
@@ -61,4 +61,4 @@ if __name__ == "__main__":
     print(json.dumps(final_status_data, indent=2))
     print("^JSON\n")
 
-    print("BCP Status Checker Script execution completed.")
+    print("BGP Status Checker Script execution completed.")
