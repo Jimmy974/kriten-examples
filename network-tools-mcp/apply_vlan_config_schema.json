@@ -1,0 +1,23 @@
+{
+  "additionalProperties": false,
+  "description": "Applies a VLAN configuration to a specified network device.",
+  "properties": {
+    "device_name": {
+      "description": "The hostname or IP address of the network device.",
+      "minLength": 1,
+      "type": "string"
+    },
+    "vlan_id": {
+      "description": "The VLAN ID to apply.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "vlan_name": {
+      "description": "The name of the VLAN.",
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": ["device_name", "vlan_id", "vlan_name"],
+  "type": "object"
+}

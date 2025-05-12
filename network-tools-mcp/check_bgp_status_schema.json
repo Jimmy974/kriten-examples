@@ -1,0 +1,15 @@
+{
+    "additionalProperties": false,
+    "description": "Checks the BGP (Border Gateway Protocol) status for a specified network device. It expects the device name as input and returns simulated BGP status information, including BGP enablement, last check timestamp, interface details, and a summary.",
+    "properties": {
+      "device_name": {
+        "description": "The hostname or IP address of the network device for which to check the BGP status.",
+        "minLength": 1,
+        "type": "string"
+      }
+    },
+    "required": [
+      "device_name"
+    ],
+    "type": "object"
+  }

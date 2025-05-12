@@ -1,0 +1,18 @@
+{
+  "additionalProperties": false,
+  "description": "Restores the configuration of a specified network device from a given backup location.",
+  "properties": {
+    "device_name": {
+      "description": "The hostname or IP address of the network device to restore.",
+      "minLength": 1,
+      "type": "string"
+    },
+    "backup_location": {
+      "description": "The source path or identifier of the configuration backup to restore from.",
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": ["device_name", "backup_location"],
+  "type": "object"
+}

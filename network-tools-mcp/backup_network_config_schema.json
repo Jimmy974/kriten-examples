@@ -1,0 +1,18 @@
+{
+  "additionalProperties": false,
+  "description": "Backs up the configuration of a specified network device to a given location.",
+  "properties": {
+    "device_name": {
+      "description": "The hostname or IP address of the network device to back up.",
+      "minLength": 1,
+      "type": "string"
+    },
+    "backup_location": {
+      "description": "The destination path or identifier where the configuration backup will be stored.",
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": ["device_name", "backup_location"],
+  "type": "object"
+}
